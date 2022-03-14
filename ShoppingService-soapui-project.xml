@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="68b1587b-c1c6-4fbd-9e4e-f729062ba163" activeEnvironment="Default" name="ShoppingService" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c72af998-a722-4db6-9d1b-802b6ca936d0" wsaVersion="NONE" name="ShoppingServiceSoapBinding" type="wsdl" bindingName="{http://expertz.me/service/eCommerce/ShoppingService/1.0}ShoppingServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/Moolya%20Testing/Project/Resources/ShoppingService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\Moolya%20Testing\Project\Resources\ShoppingService.wsdl"><con:part><con:url>file:\D:\Moolya%20Testing\Project\Resources\ShoppingService.wsdl</con:url><con:content><![CDATA[<definitions name="ShoppingService" targetNamespace="http://expertz.me/service/eCommerce/ShoppingService/1.0" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:sdt="http://expertz.me/data/eCommerce/ShoppingService/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ss="http://expertz.me/service/eCommerce/ShoppingService/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://expertz.me/data/eCommerce/ShoppingService/1.0" schemaLocation="ShoppingService.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="loginRequest">
+    <part name="loginRequest" element="sdt:loginRequest"/>
+  </message>
+  <message name="loginResponse">
+    <part name="sessionId" element="sdt:sessionId"/>
+  </message>
+  <message name="login_faultMsg">
+    <part name="loginFault" element="sdt:faultMessage"/>
+  </message>
+  <message name="findRequest">
+    <part name="findRequest" element="sdt:findRequest"/>
+  </message>
+  <message name="findResponse">
+    <part name="findResponse" element="sdt:findResponse"/>
+  </message>
+  <message name="find_faultMsg">
+    <part name="findFault" element="sdt:faultMessage"/>
+  </message>
+  <message name="purchaseRequest">
+    <part name="purchaseRequest" element="sdt:purchaseRequest"/>
+  </message>
+  <message name="purchaseResponse">
+    <part name="purchaseResponse" element="sdt:purchaseResponse"/>
+  </message>
+  <message name="purchase_faultMsg">
+    <part name="purchaseFault" element="sdt:faultMessage"/>
+  </message>
+  <message name="logoutRequest">
+    <part name="logoutRequest" element="sdt:logoutRequest"/>
+  </message>
+  <message name="logoutResponse">
+    <part name="logoutResponse" element="sdt:logoutResponse"/>
+  </message>
+  <message name="logout_faultMsg">
+    <part name="logoutFault" element="sdt:faultMessage"/>
+  </message>
+  <portType name="ShoppingServicePt">
+    <operation name="login">
+      <input message="ss:loginRequest"/>
+      <output message="ss:loginResponse"/>
+      <fault name="fault" message="ss:login_faultMsg"/>
+    </operation>
+    <operation name="logout">
+      <input message="ss:logoutRequest"/>
+      <output message="ss:logoutResponse"/>
+      <fault name="fault" message="ss:logout_faultMsg"/>
+    </operation>
+    <operation name="find">
+      <input message="ss:findRequest"/>
+      <output message="ss:findResponse"/>
+      <fault name="fault" message="ss:find_faultMsg"/>
+    </operation>
+    <operation name="purchase">
+      <input message="ss:purchaseRequest"/>
+      <output message="ss:purchaseResponse"/>
+      <fault name="fault" message="ss:purchase_faultMsg"/>
+    </operation>
+  </portType>
+  <binding name="ShoppingServiceSoapBinding" type="ss:ShoppingServicePt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="login">
+      <soap:operation soapAction="http://expertz.me/service/eCommerce/ShoppingService/1.0/login"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="logout">
+      <soap:operation soapAction="http://expertz.me/service/eCommerce/ShoppingService/1.0/logout"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="find">
+      <soap:operation soapAction="http://expertz.me/service/eCommerce/ShoppingService/1.0/find"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="purchase">
+      <soap:operation soapAction="http://expertz.me/service/eCommerce/ShoppingService/1.0/purchase"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ShoppingService">
+    <port name="ShoppingServicePort" binding="ss:ShoppingServiceSoapBinding">
+      <soap:address location="http://localhost:8088/mockShoppingService"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\D:\Moolya%20Testing\Project\Resources\ShoppingService.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://expertz.me/data/eCommerce/ShoppingService/1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:smsg="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+  <xsd:element name="faultMessage" type="xsd:string"/>
+  <xsd:complexType name="FaultMessage">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string"/>
+      <xsd:element name="errorDesc" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="sessionId" type="smsg:SessionId"/>
+  <xsd:simpleType name="SessionId">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="PurchaseItem">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:element name="purchaseRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" type="smsg:SessionId"/>
+        <xsd:element name="purchaseItem" type="smsg:PurchaseItem"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="loginRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="username" type="xsd:string"/>
+        <xsd:element name="password" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="logoutRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" type="smsg:SessionId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="logoutResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="logoutMessage" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="findRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sessionId" type="xsd:string"/>
+        <xsd:element name="findString" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="findResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="item" type="smsg:ItemType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ItemType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string"/>
+      <xsd:element name="description" type="xsd:string"/>
+      <xsd:element name="price" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="purchaseResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="purchaseStatus" type="smsg:PurchaseStatusType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="PurchaseStatusType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string"/>
+      <xsd:element name="stockStatus" type="xsd:string"/>
+      <xsd:element name="expectedDelivery" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:endpoint>http://localhost:8088/mockShoppingService</con:endpoint></con:endpoints><con:operation id="e41c8d5e-e75c-4a23-a898-b75e3c48b24d" isOneWay="false" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/find" name="find" bindingOperationName="find" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4968ee06-cb3c-48b5-be5a-5f96a33fe506" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/mockShoppingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:findRequest>\r
+         <ns:sessionId>?</ns:sessionId>\r
+         <ns:findString>?</ns:findString>\r
+      </ns:findRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/find"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="633cf8f8-7421-4a36-9432-586411c1e275" isOneWay="false" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/login" name="login" bindingOperationName="login" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a960af0e-d127-47ab-a8ac-df42114cbe59" name="Valid Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:loginRequest>\r
+         <ns:username>Abhishek</ns:username>\r
+         <ns:password>Welcome1</ns:password>\r
+      </ns:loginRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/login"/><con:wsrmConfig version="1.2"/></con:call><con:call id="69700291-8cf7-4f47-91f6-9d03c01449d3" name="Invalid Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:loginRequest>\r
+         <ns:username>Ab</ns:username>\r
+         <ns:password>welcome123</ns:password>\r
+      </ns:loginRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/login"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8b2e6a0f-6738-4ec1-bf41-47210894e995" isOneWay="false" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/logout" name="logout" bindingOperationName="logout" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="516b793d-d502-4e0b-978d-8502ebacf982" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:logoutRequest>\r
+         <ns:sessionId>Abhishek</ns:sessionId>\r
+      </ns:logoutRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/logout"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="660a206a-35cf-4a9a-bbc3-8454fcd62ad7" isOneWay="false" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/purchase" name="purchase" bindingOperationName="purchase" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d59bccb7-5360-465f-9c6b-4e860eafb44f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/mockShoppingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:purchaseRequest>\r
+         <ns:sessionId>?</ns:sessionId>\r
+         <ns:purchaseItem>?</ns:purchaseItem>\r
+      </ns:purchaseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/purchase"/></con:call></con:operation></con:interface><con:testSuite id="402e7860-ddc1-410f-a432-ef327508b449" name="ShoppingServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f2b37251-070c-4458-a6e3-75bd9d6179f1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="find TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="ea72921e-1455-47b9-a06d-36a45cbe9230" name="find"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>find</con:operation><con:request name="find" id="31111d4e-5a80-4881-ab44-17f87158d353"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:findRequest>\r
+         <ns:sessionId>?</ns:sessionId>\r
+         <ns:findString>?</ns:findString>\r
+      </ns:findRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://expertz.me/service/eCommerce/ShoppingService/1.0/find" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="65d2c8e0-bf92-4b40-84dd-9a3c5eb3121c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="login TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="778b48e1-0b73-4f2c-91df-7aa904d2cb72" name="login"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="login" id="e453b823-3009-47f4-8633-54c5956fab81"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:loginRequest>\r
+         <ns:username>Abhishek</ns:username>\r
+         <ns:password>welcome1</ns:password>\r
+      </ns:loginRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="9267c1fe-a717-49fb-8b28-f240c0af3518" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://expertz.me/service/eCommerce/ShoppingService/1.0/login" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="961f6f8f-40c8-4eb9-abf4-bbd49d105935" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="logout TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b60f8f1d-e28e-4f0f-abdb-b8c5ed81e160" name="logout"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>logout</con:operation><con:request name="logout" id="df664c48-6efd-4d59-958f-52811eafe8b2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:logoutRequest>\r
+         <ns:sessionId>?</ns:sessionId>\r
+      </ns:logoutRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://expertz.me/service/eCommerce/ShoppingService/1.0/logout"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5a74b864-424a-4744-bad2-84f20d1e1130" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="purchase TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="27f3dbb1-b779-4960-9cbb-5b780a5cbdf8" name="purchase"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>purchase</con:operation><con:request name="purchase" id="0720a68c-b6ca-458b-a6ae-9bd18cfab813"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:purchaseRequest>\r
+         <ns:sessionId>?</ns:sessionId>\r
+         <ns:purchaseItem>?</ns:purchaseItem>\r
+      </ns:purchaseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://expertz.me/service/eCommerce/ShoppingService/1.0/purchase"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="0d431c20-cb7a-4580-a0fc-4c8ffdce9fa6" name="Shopping Service Functional"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e8738864-ae98-47fb-927e-d97f102384cf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Traditional Login and Logout" searchProperties="true"><con:settings/><con:testStep type="properties" name="username and password properties" id="eba340a1-22f3-4323-9657-2d39d54b5117"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>username</con:name><con:value>abhi</con:value></con:property><con:property><con:name>password</con:name><con:value>welcome1</con:value></con:property><con:property><con:name>purchaseItem</con:name><con:value>Android Tablet</con:value></con:property><con:property><con:name>findString</con:name><con:value>Android Tablet</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Login" id="c3146775-3abb-46b6-b7fa-9a2fdb41eced"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="Login" id="4bc8befa-e3b1-43a8-8421-59ea2d2c4a4b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:loginRequest>
+         <ns:username>abhi</ns:username>
+         <ns:password>welcome1</ns:password>
+      </ns:loginRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="76ee42e9-8814-4906-8b4b-73cdd0019f0b"/><con:assertion type="Schema Compliance" id="3e02de95-d82d-4b7b-9d31-e9816b5d8dd7"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="5b2a3199-2a94-469d-876c-907c99e0f3e0"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="SessionID Transfer" id="a0229cee-81bb-4471-a430-402acb163d13"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>sessionID</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Login</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+
+//*:sessionId
+</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Find</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+//*:sessionId
+</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>findString</con:name><con:sourceType>findString</con:sourceType><con:sourceStep>username and password properties</con:sourceStep><con:sourcePath/><con:targetType>Request</con:targetType><con:targetStep>Find</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+//*:findString
+</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Find" id="bdc56f53-cab3-45ac-ae05-15b2495b5042"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>find</con:operation><con:request name="Find" id="213db447-1421-44b3-abe8-2acd78e48236"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:findRequest>
+         <ns:sessionId>8930284743737856</ns:sessionId>
+         <ns:findString>Android Tablet</ns:findString>
+      </ns:findRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="308d2d45-04b6-430c-a3cc-a98280799105"/><con:assertion type="Schema Compliance" id="ea1de612-ac94-4a8e-abec-02e83015e424"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="460ad4e3-020f-4fee-b399-5db316d3ef94"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="purchase Transfer" id="8f081cfc-9f24-47a2-9397-05d25f41a14c"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>sessonId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Login</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+//*:sessionId
+</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Purchase</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+//*:sessionId
+</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>purchaseItem</con:name><con:sourceType>purchaseItem</con:sourceType><con:sourceStep>username and password properties</con:sourceStep><con:sourcePath/><con:targetType>Request</con:targetType><con:targetStep>Purchase</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+//*:purchaseItem
+</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Purchase" id="bfb046b1-7eac-4f73-a439-60593bc98f3a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>purchase</con:operation><con:request name="Purchase" id="ee92c079-e6a0-46d4-8888-7661dc1e96a6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:purchaseRequest>
+         <ns:sessionId>8930284743737856</ns:sessionId>
+         <ns:purchaseItem>Android Tablet</ns:purchaseItem>
+      </ns:purchaseRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="52261270-d3fb-40dc-b810-2bc12eea0a50"/><con:assertion type="Schema Compliance" id="bb6f3262-a011-4d0a-81d9-02c45abc9087"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="43015c84-5948-404c-9f84-8afe87c05e19"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Copy of SessionID Transfer 1" id="fcaf0e2b-f7ca-49d3-9e31-429676948607"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>sessionID</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Login</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+
+//*:sessionId
+</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Logout</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://expertz.me/data/eCommerce/ShoppingService/1.0';
+declare namespace ns2='http://expertz.me/service/eCommerce/ShoppingService/1.0';
+//*:sessionId
+</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Logout" id="3ee20933-4dc3-4b97-bc15-177896d02dc7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>logout</con:operation><con:request name="Logout" id="2471f6f8-74d3-4601-855e-97099d1f2496"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:logoutRequest>
+         <ns:sessionId>8930284743737856</ns:sessionId>
+      </ns:logoutRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1574c4f0-d049-4f4a-8e31-10e1917e3cad"/><con:assertion type="Schema Compliance" id="5c04c684-27fa-4633-b64d-0bf1c1fdf5cb"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="e2117a08-7ec9-4d7c-9777-2833900388eb"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="29d0ac95-2fc4-4dcd-8529-dc3b4e0a6329" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Expansion properties Login and Logout" searchProperties="true"><con:settings/><con:testStep type="properties" name="username and password properties" id="9df7c299-9fc1-4028-bce4-429e01cc65f0"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>username</con:name><con:value>abhishek</con:value></con:property><con:property><con:name>password</con:name><con:value>Welcome12</con:value></con:property><con:property><con:name>findString</con:name><con:value>Android Tablet</con:value></con:property><con:property><con:name>purchaseItem</con:name><con:value>Android Tablet</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Login" id="1082b6ae-fddb-48d5-b7dc-892613e762da"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="Login" id="4bc8befa-e3b1-43a8-8421-59ea2d2c4a4b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:loginRequest>
+         <ns:username>${username and password properties#username}</ns:username>
+         <ns:password>${username and password properties#password}</ns:password>
+      </ns:loginRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="76ee42e9-8814-4906-8b4b-73cdd0019f0b"/><con:assertion type="Schema Compliance" id="3e02de95-d82d-4b7b-9d31-e9816b5d8dd7"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="5b2a3199-2a94-469d-876c-907c99e0f3e0"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Find" id="818745df-5540-4e59-8aa1-7ed8251954b0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>find</con:operation><con:request name="Find" id="a08acadf-d0d2-4d43-a857-216695e1cf62"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:findRequest>\r
+         <ns:sessionId>${Login#Response#//*:sessionId}</ns:sessionId>\r
+         <ns:findString>${username and password properties#findString}</ns:findString>\r
+      </ns:findRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c6b9fcd9-39cf-46e7-a68c-c1f32866f0e9"/><con:assertion type="Schema Compliance" id="6c8a787c-4342-4480-a7e0-cf7a2425b15e"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="445818c1-8025-493b-a3b1-5a08360012b4"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="To purchase or not to purchase" id="63a075b8-fabb-4451-a754-d6e99251eb76"><con:settings/><con:config><script>//if user can purchase
+
+//we are fetching username first
+def username = context.expand('${Login#Request#//*:username}')
+log.info username
+
+if (username!="abhishekk")
+{
+	log.info "Not privilaged user"
+
+	//if we want to skip any step
+	testRunner.gotoStepByName("Logout")
+}
+else
+{
+	log.info "Proceed to purchase"
+}
+</script></con:config></con:testStep><con:testStep type="request" name="Purchase" id="c23e2ff8-302b-4d83-bfdc-76716fb3fd07"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>purchase</con:operation><con:request name="Purchase" id="37e6e880-eac5-4d87-8ed4-95aedc5ad585"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:purchaseRequest>\r
+         <ns:sessionId>${Login#Response#//*:sessionId}</ns:sessionId>\r
+         <ns:purchaseItem>${username and password properties#purchaseItem}</ns:purchaseItem>\r
+      </ns:purchaseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d1bac2d7-c774-49ac-94ac-3b79ed2344a6"/><con:assertion type="Schema Compliance" id="25c9399e-469e-4591-980e-bbe56d032529"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="341fde0d-0e94-46dd-91ea-4f8ba20c0367"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Logout" id="e39f4296-99d0-40f4-87a0-e13a175399da"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>logout</con:operation><con:request name="Logout" id="99962e3e-6835-427f-8788-b0dca05df652"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:logoutRequest>\r
+         <ns:sessionId>${Login#Response#//*:sessionId}</ns:sessionId>\r
+      </ns:logoutRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d7946060-a29b-42cc-a8df-3b6355749139"/><con:assertion type="Schema Compliance" id="58c01c95-e0e9-4f0b-bc68-0abf375c7ec1"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="b297d62f-5322-46e6-9646-71bc8e10b00d"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bb5ea5c5-2773-4d3c-b58f-405295ad2133" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Script Based Execution" searchProperties="true"><con:settings/><con:testStep type="properties" name="username and password properties" id="72006849-e063-40f9-83f4-8fafd17689a3"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>username</con:name><con:value>Niharika</con:value></con:property><con:property><con:name>password</con:name><con:value>Welcome12</con:value></con:property><con:property><con:name>purchaseItem</con:name><con:value>Android Tablet</con:value></con:property><con:property><con:name>findString</con:name><con:value>Android Tablet</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Login" id="72fada79-ead2-4d39-a750-dd8d95d95723"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="Login" id="a1a17c1a-edd7-4a61-8828-3cbe76b33a74"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:loginRequest>\r
+         <ns:username>${username and password properties#username}</ns:username>\r
+         <ns:password>${username and password properties#password}</ns:password>\r
+      </ns:loginRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="38f86e68-44b1-4231-8880-ba17f94df7c1"/><con:assertion type="Schema Compliance" id="9702e30d-68dc-48df-9435-b21853ab7b85"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="4a3117b1-0dd9-4438-a3ac-8f538f50b631"/><con:assertion type="GroovyScriptAssertion" id="386ad473-b136-4c0f-9297-9fcb974b086c" name="get and store the response"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+//i am going to write a groovy script to capture the response and fetch the sessionID and stor it in test case/test suite level
+//i have cretead a varibale called response
+//i want to fetch the entire response and store it in this variable
+def response = context.testCase.getTestStepByName('Login').getPropertyValue("Response")
+//holder
+//i want to store this entire response in a holder
+//so that i can get a specify data and storeit again
+def holder = new XmlHolder(response)
+//get node value is used when i want to fetch a specific response data
+def sess = holder.getNodeValue("//*:sessionId")
+//i want to store this session id in test suite level sothat i can use it in all my test case
+context.testCase.testSuite.setPropertyValue("sessionId",sess)
+//can i store it in the test case
+context.testCase.setPropertyValue("sessionId",sess)
+//i want to access this acroos project level
+context.testCase.testSuite.project.setPropertyValue("sessionId",sess)
+
+log.info sess</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Find" id="fd8e7ef0-f0ce-4493-aeee-a891cf4dafe5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>find</con:operation><con:request name="Find" id="052a1493-0bea-447f-9587-a7d3053b913e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:findRequest>\r
+         <ns:sessionId>${#TestCase#sessionId}</ns:sessionId>\r
+         <ns:findString>${username and password properties#findString}</ns:findString>\r
+      </ns:findRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="abe4c6d6-af73-49c8-822e-57c185e153aa"/><con:assertion type="Schema Compliance" id="a7b684ff-eb87-4ed2-9914-7fe15ce2d823"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="999f1ef6-7b77-45d5-85af-d0c308946d82"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Purchase" id="f86aa5d3-071a-4ded-9ff7-10ea337cd914"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>purchase</con:operation><con:request name="Purchase" id="d52b01ec-45ca-4820-a72a-148dacdd413c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:purchaseRequest>\r
+         <ns:sessionId>${#TestCase#sessionId}</ns:sessionId>\r
+         <ns:purchaseItem>${username and password properties#purchaseItem}</ns:purchaseItem>\r
+      </ns:purchaseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b79f5652-79b7-4e5e-ba13-2c263c4effd3"/><con:assertion type="Schema Compliance" id="3d960ad3-cacd-4efd-9e58-fa1d111d528f"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="87445c5c-79fd-4bf9-8d23-11eb94e56b68"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Logout" id="79d4eb1e-dc4c-43ec-a824-aa33c6aca90d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ShoppingServiceSoapBinding</con:interface><con:operation>logout</con:operation><con:request name="Logout" id="789700b6-45ee-45a6-bd26-1e3d6388331e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-VKUUCE7:8088/mockShoppingService Server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:logoutRequest>\r
+         <ns:sessionId>${#TestCase#sessionId}</ns:sessionId>\r
+      </ns:logoutRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cdfa71b3-d6b1-482e-a5fc-2630d9c6cf44"/><con:assertion type="Schema Compliance" id="74ca569e-ff5e-4527-b036-6e41e896ebc0"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="58250460-7bab-40d1-a3bd-8a372857438e"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>sessionId</con:name><con:value>940222301934158</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>sessionId</con:name><con:value>940222301934158</con:value></con:property></con:properties></con:testSuite><con:testSuite id="f2c34a2c-a43e-4589-a668-e2cc4710b778" name="System Testing"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d9e11a2d-5be4-4dba-90d1-f71850b2db0d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="System Test" searchProperties="true"><con:settings/><con:testStep type="groovy" name="purchase or not" id="07a9c9c5-e6b2-410c-b887-99b88bee9661"><con:settings/><con:config><script>def tc = testRunner.testCase.testSuite.project.testSuites["Shopping Service Functional"].testCases["Expansion properties Login and Logout"]
+tc.testSteps["username and password properties"].setPropertyValue("username","abhishek")
+tc.testSteps["username and password properties"].setPropertyValue("password","Welcome12")
+//this line will execute the entire testcase
+def runner = tc.run(null,false)
+
+def teststeplist = tc.getTestStepList()
+//log.info TSL
+//i want see the names of the my test steps
+teststeplist.each
+{
+	def tsname = it.name
+	log.info tsname
+	//fetch the currect step which i am executing
+	//log.info tc.getCurrentStep().name
+}
+//i want to know the status of my execution
+//this will provide me the execution status
+log.info "Status: $runner.status "
+//This will provide me the time taken forexecution
+log.info "TimeTaken: $runner.timeTaken"
+//i want to know the number of steps executed
+log.info "Number of Steps executed is :" + runner.results.size()
+//Assert
+assert runner.results.size()==5</script></con:config></con:testStep><con:testStep type="groovy" name="System Test" id="fa11ec73-ee70-4fca-9ab8-74153a1ac6d4"><con:settings/><con:config><script>import com.eviware.soapui.model.testsuite.TestRunner.Status
+//From here i want to execute Script Based Execution
+//if i want to run script based execution from here i have to use Test Runner
+//coz it is in different test suite
+def tc = testRunner.testCase.testSuite.project.testSuites["Shopping Service Functional"].testCases["Script Based Execution"]
+tc.testSteps["username and password properties"].setPropertyValue("username","Niharika")
+tc.testSteps["username and password properties"].setPropertyValue("password","Welcome12")
+//i am running the entire test case by changing the data
+//if you are running more then one step in testcase
+//you have to say null means there is no context and false is coz i am not checking any condition
+tc.run(null,false)
+//i want to check what all the steps got executed
+def teststeplist = tc.getTestStepList()
+log.info teststeplist.size()
+//log.info TSL
+//i want see the names of the my test steps
+teststeplist.each
+{
+	def tsname = it.name
+	log.info tsname
+	//fetch the currect step which i am executing
+	//log.info tc.getCurrentStep().name
+}</script></con:config></con:testStep><con:testStep type="groovy" name="Data Driven" id="57814831-b82a-4ed1-80d7-f6ad22835c21"><con:settings/><con:config><script>//jxl is jar which helps connect to te excel to read and write data for me
+//since i am a tester i read data
+import jxl.*
+def filepath = "C:/Users/Administrator/Desktop/Test Data.xls"
+//where the file is to read
+File Excel = new File(filepath)
+
+//excelsheet basically it contains workbook and sheets
+//i have to get the workbook
+Workbook wb = Workbook.getWorkbook(Excel)
+
+//i am trying to get the sheet
+Sheet sh = wb.getSheet("Sheet1")
+def row = sh.getRows().toInteger()
+def column = sh.getColumns().toInteger()
+log.info "The Number of rows are $row and The Number of column are $column"
+
+//i want to fetch the data in each row and column
+for(def i=0;i&lt;row;i++)
+{
+	for(def j=0;j&lt;column;j++)
+	{
+		if(j==0)
+		{
+			username = sh.getCell(j,i).getContents()
+		}
+		else
+		{
+			password = sh.getCell(j,i).getContents()
+		}
+	}
+	log.info "$username and $password"
+}</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="078b33df-e5f5-42a5-a457-831702b01c95" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DB Testing" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="JDBC Request" id="2111fa13-21ce-4c20-a406-9d0778076b45"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>com.mysql.jdbc.Driver</con:driver><con:connectionString>jdbc:mysql://localhost:3306/FunctionalTesting?user=root&amp;password=root</con:connectionString><con:query>select * from Login</con:query><con:properties/></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService port="8088" path="/mockShoppingService" host="chethan-PC" name="ShoppingServiceSoapBinding MockService" bindToHostOnly="false" docroot="" id="e7d57634-69e6-4172-8621-c5d73d38fe4a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="find" interface="ShoppingServiceSoapBinding" operation="find" id="d734a9af-34b5-4a2f-b643-7d0d7d7959b8"><con:settings/><con:dispatchPath>// Util variables to access the xml data
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = groovyUtils.getXmlHolder( mockRequest.requestContent )
+
+// Get the session ID
+def sessionid = holder.getNodeValue( "//*:sessionId" )
+
+// check if its a valid session
+if( !context.hasProperty( sessionid )){
+	// If not a valid session ID, set the relevant fault message
+	requestContext.faultCode = 'APP006'
+	requestContext.faultShortDesc = 'Invalid Session'
+	requestContext.faultCausedBy = 'Auth System'
+	requestContext.faultDesc = 'Invalid Session ID. Session does not exist or has timed out.'
+	return "Fault Find"
+}
+
+// Get the query string
+def itemDesc = holder.getNodeValue( "//*:findString" )
+
+// This is our item list. Feel free to add more items if you want...
+def itemList = [ : ]
+itemList["Android Tablet"] = [id:1, desc: "Android Tablet", price: "40 GBP" ,stockStatus: "100", expectedDelivery: "30-JUL-2012"]
+itemList["iPad v1"] = [id:2, desc: "iPad v1", price: "540 GBP"  ,stockStatus: "50", expectedDelivery: "30-JUL-2012"]
+itemList["iPad v2"] = [id:3, desc: "iPad v2", price: "800 GBP"  ,stockStatus: "10", expectedDelivery: "30-AUG-2012"]
+
+
+//def itemList = context.getProperty("itemList")
+
+// Check if we have an item with the same description as the search string
+if(itemList.containsKey(itemDesc)){
+	// Populate item details and send success message
+	def item = itemList[itemDesc]
+	requestContext.itemId = item.id
+	requestContext.itemDescription = item.desc
+	requestContext.itemPrice = item.price
+	return "Successful Find"
+}
+
+// We couldn't find a particular item for the search. 
+//In the demo we don't support generic queries. So send a fault message
+requestContext.faultCode = 'APP007'
+requestContext.faultShortDesc = 'Invalid Query'
+requestContext.faultCausedBy = 'Search System'
+requestContext.faultDesc = 'In the demo we do not support generic queries and we could not find any items with the given string!!!'
+return "Fault Find"
+</con:dispatchPath><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Successful Find" encoding="UTF-8" id="794fbd2f-11ad-4ab5-a636-16f35a1b21c6" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:findResponse>
+         <ns:item>
+            <ns:id>${itemId}</ns:id>
+            <ns:description>${itemDescription}</ns:description>
+            <ns:price>${itemPrice}</ns:price>
+         </ns:item>
+      </ns:findResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/find"/></con:response><con:response name="Fault Find" encoding="UTF-8" id="2b565300-e7b3-4106-acfe-5a9efaa0768d" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>${faultCode}</faultcode>
+      <faultstring xml:lang="en-US">${faultShortDesc}</faultstring>
+      <!--Optional:-->
+      <faultactor>${faultCausedBy}</faultactor>
+      <!--Optional:-->
+      <detail>
+      ${faultDesc}
+        <!--You may enter ANY elements at this point-->
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/find"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="login" interface="ShoppingServiceSoapBinding" operation="login" id="0d01eb75-dc95-4901-bc07-1e76bc1fe791"><con:settings/><con:dispatchPath>// Initialize Util classes to retrieve XML value
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = groovyUtils.getXmlHolder( mockRequest.requestContent )
+
+// Get the username and Password values provided
+def username = holder.getNodeValue( "//*:username" )
+def password = holder.getNodeValue( "//*:password" )
+
+// validate by checking that the User is not already logged in
+// Username is of required length and Password doesn't end with 123!!!
+if( context.hasProperty( username )  || username.length() > 10 || username.length() &lt; 3 || password.endsWith( "123" )){
+	// If user is already loggged in, set different fault codes compared to others
+	if(context.hasProperty( username )){
+		requestContext.faultCode = 'APP001'
+		requestContext.faultShortDesc = 'Already Logged In'
+		requestContext.faultCausedBy = 'Auth System'
+		requestContext.faultDesc = 'User is already logged in. If you want to login as another user logout first'
+	}
+	else{
+		// Set relevant error code and desc. For the demo, we will keep it simple
+		requestContext.faultCode = 'APP002'
+		requestContext.faultShortDesc = 'Invalid Login Credentials'
+		requestContext.faultCausedBy = 'Auth System'
+		requestContext.faultDesc = 'Invalid Login Credentials. Please try again.'
+	}
+	// Specify which response to send back
+	return "Fault Login"	
+}
+
+// Seems like a valid request, so generate session ID
+// Note that we don't do password verification in the demo
+def sessionid = String.valueOf( Math.random() ).substring( 2 )
+
+// Set the user name and session ID as valid sessions and logged in user in context
+// This helps in looking up to see if the user is logged in or if this is a valid session ID
+context.setProperty( username, sessionid )
+context.setProperty( sessionid, username )
+
+requestContext.sessionid = sessionid
+return "Successful Login"
+</con:dispatchPath><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:defaultResponse>Successful Login</con:defaultResponse><con:response name="Successful Login" encoding="UTF-8" id="7d7bb0d7-b4fb-4c78-b549-0a1370e9b5cb" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:sessionId>${sessionid}</ns:sessionId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/login"/></con:response><con:response name="Fault Login" encoding="UTF-8" id="31554769-bed6-4589-858d-dcfa85796072" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>${faultCode}</faultcode>
+      <faultstring xml:lang="en-US">${faultShortDesc}</faultstring>
+      <!--Optional:-->
+      <faultactor>${faultCausedBy}</faultactor>
+      <!--Optional:-->
+      <detail>
+        <ns:faultMessage>${faultDesc}</ns:faultMessage>
+        <!--You may enter ANY elements at this point-->
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>
+]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/login"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="logout" interface="ShoppingServiceSoapBinding" operation="logout" id="48591e02-8cdc-4a73-a086-eadab6dc99d2"><con:settings/><con:dispatchPath>// Util variables to access the xml data
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = groovyUtils.getXmlHolder( mockRequest.requestContent )
+
+// Get the session ID
+def sessionid = holder.getNodeValue( "//*:sessionId" )
+
+// check if its a valid session
+if( !context.hasProperty( sessionid )){
+	// If not a valid session ID, set the relevant fault message
+	requestContext.faultCode = 'APP003'
+	requestContext.faultShortDesc = 'Invalid Session'
+	requestContext.faultCausedBy = 'Auth System'
+	requestContext.faultDesc = 'Invalid Session ID. Session does not exist or has timed out.'
+	return "Fault Logout"
+}
+
+// logout from the system by removing the relevant context
+context.removeProperty( context.getProperty( sessionid ))
+context.removeProperty( sessionid )
+requestContext.logoutMessage = "Successfully logged out of the system."
+
+return "Successful Logout"
+</con:dispatchPath><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Successful Logout" encoding="UTF-8" id="81dd1d58-e823-43da-8e93-af97590420c0" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:logoutResponse>
+         <ns:logoutMessage>${logoutMessage}</ns:logoutMessage>
+      </ns:logoutResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/logout"/></con:response><con:response name="Fault Logout" encoding="UTF-8" id="8e6ceb20-020b-4057-88c8-b2146170ce2e" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>${faultCode}</faultcode>
+      <faultstring xml:lang="en-US">${faultShortDesc}</faultstring>
+      <!--Optional:-->
+      <faultactor>${faultCausedBy}</faultactor>
+      <!--Optional:-->
+      <detail>
+      ${faultDesc}
+        <!--You may enter ANY elements at this point-->
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/logout"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="purchase" interface="ShoppingServiceSoapBinding" operation="purchase" id="741af9f5-5c75-463a-8989-cdc36e33725e"><con:settings/><con:dispatchPath>// Util variables to access the xml data
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def holder = groovyUtils.getXmlHolder( mockRequest.requestContent )
+
+// Get the session ID
+def sessionid = holder.getNodeValue( "//*:sessionId" )
+
+// check if its a valid session
+if( !context.hasProperty( sessionid )){
+	// If not a valid session ID, set the relevant fault message
+	requestContext.faultCode = 'APP010'
+	requestContext.faultShortDesc = 'Invalid Session'
+	requestContext.faultCausedBy = 'Auth System'
+	requestContext.faultDesc = 'Invalid Session ID. Session does not exist or has timed out.'
+	return "Fault Find"
+}
+
+// Get the query string
+def itemDesc = holder.getNodeValue( "//*:purchaseItem" )
+
+// This is our item list. Feel free to add more items if you want...
+def itemList = [ : ]
+itemList["Android Tablet"] = [id:1, desc: "Android Tablet", price: "40 GBP" ,stockStatus: "100", expectedDelivery: "30-JUL-2012"]
+itemList["iPad v1"] = [id:2, desc: "iPad v1", price: "540 GBP"  ,stockStatus: "50", expectedDelivery: "30-JUL-2012"]
+itemList["iPad v2"] = [id:3, desc: "iPad v2", price: "800 GBP"  ,stockStatus: "10", expectedDelivery: "30-AUG-2012"]
+
+
+//def itemList = context.getProperty("itemList")
+
+// Check if we have an item with the same description as the search string
+if(itemList.containsKey(itemDesc)){
+	// Populate item details and send success message
+	def item = itemList[itemDesc]
+	requestContext.itemId = item.id
+	requestContext.itemStockStatus = item.stockStatus
+	requestContext.itemExpectedDelivery = item.expectedDelivery
+	return "Successful Purchase"
+}
+
+// We couldn't find a particular item for the search. 
+//In the demo we don't support generic queries. So send a fault message
+requestContext.faultCode = 'APP011'
+requestContext.faultShortDesc = 'Invalid Item'
+requestContext.faultCausedBy = 'Purchase System'
+requestContext.faultDesc = 'In the demo we do not support bulk buys or add to cart kind of operations. We could not find any items with the given name!!!'
+return "Fault Purchase"
+</con:dispatchPath><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Successful Purchase" encoding="UTF-8" id="736f5eca-41fd-4048-bb9d-bdf6b4e1c784" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://expertz.me/data/eCommerce/ShoppingService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:purchaseResponse>
+         <ns:purchaseStatus>
+            <ns:id>${itemId}</ns:id>
+            <ns:stockStatus>${itemStockStatus}</ns:stockStatus>
+            <ns:expectedDelivery>${itemExpectedDelivery}</ns:expectedDelivery>
+         </ns:purchaseStatus>
+      </ns:purchaseResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/purchase"/></con:response><con:response name="Fault Purchase" encoding="UTF-8" id="32e63f94-7d61-41ac-a665-c61c0d5f9ccf" httpResponseStatus="200"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>${faultCode}</faultcode>
+      <faultstring xml:lang="en-US">${faultShortDesc}</faultstring>
+      <!--Optional:-->
+      <faultactor>${faultCausedBy}</faultactor>
+      <!--Optional:-->
+      <detail>
+      	${faultDesc}
+        <!--You may enter ANY elements at this point-->
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://expertz.me/service/eCommerce/ShoppingService/1.0/purchase"/></con:response><con:dispatchConfig/></con:mockOperation><con:startScript>/*
+def itemList = [ : ]
+itemList["Android Tablet"] = [id:1, desc: "Android Tablet", price: "40 GBP" ]
+itemList["iPad v1"] = [id:2, desc: "iPad v1", price: "540 GBP" ]
+itemList["iPad v2"] = [id:3, desc: "iPad v2", price: "800 GBP" ]
+
+context.setProperty("itemList", itemList)
+*/</con:startScript><con:properties/></con:mockService><con:properties><con:property><con:name>sessionId</con:name><con:value>940222301934158</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
